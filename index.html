@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+ 
+
+      meter[value]::-webkit-meter-bar {
+        background-color: white;
+        /* box-shadow: 0px 0px 2px red inset; */
+        border: 1px solid black;
+        border-radius: 0;
+        background-image: linear-gradient(to left,rgb(207, 59, 0),white);
+
+      }
+    </style>
+  </head>
+  <body>
+    <div >
+      <h1>
+        Progress
+        <meter
+          min="0" max="100" value="0" low="20" high="60" optimum="90" id="m"></meter>
+        <span id="percentage">0%</span>
+           </h1>
+    </div>
+        <script>
+          var m = document.getElementById("m");
+
+          var percent = m.value;
+            var percentageSpan = document.getElementById("percentage");
+          var count = 1;
+          function countMeter() {
+            if (count <= 100) {
+              m.value = count;
+              percentageSpan.textContent = Number(count) + "%";
+              count++;
+               setTimeout(countMeter, 100);
+            }
+            
+          }
+
+          countMeter();
+        </script>
+   
+  </body>
+</html>
